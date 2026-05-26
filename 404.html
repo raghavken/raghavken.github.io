@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Page Not Found</title>
+    <meta name="robots" content="noindex" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="topbar-brand">Raghav Kenchannavar</div>
+        <nav class="topnav" aria-label="Primary navigation">
+          <a class="topnav-link" href="/#about">About</a>
+          <a class="topnav-link" href="/#positions">Positions</a>
+          <a class="topnav-link" href="/#achievements">Achievements</a>
+          <a class="topnav-link" href="/#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar" aria-label="Sidebar with personal info">
+        <div class="sidebar-avatar">
+          <img src="profile.png" alt="Raghav Kenchannavar" width="120" height="120" />
+        </div>
+        <div class="sidebar-name">Raghav Kenchannavar</div>
+        <div class="sidebar-tagline">Portfolio</div>
+      </aside>
+
+      <main id="main" class="content">
+        <section class="section">
+          <h1 class="content-title">404</h1>
+          <p class="lead" style="margin-top: 0;">
+            The page you’re looking for doesn’t exist. If you think this is a mistake, head
+            back to the home page.
+          </p>
+
+          <div class="contact-links">
+            <a class="cta-link" href="/">Go to homepage</a>
+            <a class="cta-link" href="/#positions">View positions</a>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <span class="muted small">© <span id="year"></span> Raghav Kenchannavar. All rights reserved.</span>
+        <span class="muted small">Built with HTML + CSS</span>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
+
