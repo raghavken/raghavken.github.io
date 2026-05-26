@@ -11,13 +11,18 @@
 }
 
 *{ box-sizing:border-box; }
-html,body{ height:100%; }
+html{
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+html,body{ min-height:100%; }
 body{
   margin:0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 .sr-only{
@@ -185,6 +190,11 @@ body{
   display:flex;
   align-items:center;
   gap: 10px;
+  min-height: 44px;
+}
+.sidebar-link .link-text{
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 .sidebar-link:hover{
   background: rgba(255,255,255,0.08);
@@ -198,6 +208,7 @@ body{
 
 .section{
   margin-bottom: 42px;
+  scroll-margin-top: 88px;
 }
 .content-title{
   margin: 0 0 12px;
@@ -265,7 +276,6 @@ body{
   color: var(--muted);
   font-size: 13px;
   font-weight: 650;
-  white-space: nowrap;
 }
 .entry-list{
   margin: 10px 0 0;
@@ -290,10 +300,15 @@ body{
   border-radius: 14px;
   border: 1px solid rgba(255,255,255,0.14);
   background: rgba(255,255,255,0.05);
-  max-width: 360px;
+  max-width: 100%;
   display:flex;
   align-items:center;
   gap: 10px;
+  min-height: 44px;
+}
+.cta-link .link-text{
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 .cta-link:hover{
   background: rgba(255,255,255,0.09);
@@ -316,18 +331,159 @@ body{
 @media (max-width: 980px){
   .layout{
     flex-direction: column;
-    gap: 18px;
+    gap: 24px;
+    padding: 20px 0 56px;
   }
   .sidebar{
     width: 100%;
     flex: 0 0 auto;
     position: static;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.10);
+  }
+  .sidebar-links{
+    width: 100%;
+    max-width: 420px;
   }
   .topbar-inner{
-    align-items:flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .topnav{
+    width: 100%;
+    justify-content: center;
+    gap: 12px 20px;
   }
   .content-title{
     font-size: 30px;
+  }
+  .entry-head{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
+
+@media (max-width: 640px){
+  .topbar{
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+  .topbar-inner,
+  .layout,
+  .footer-inner{
+    width: min(1100px, calc(100% - 20px));
+  }
+  .topbar-inner{
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px 0;
+  }
+  .topbar-brand{
+    font-size: 17px;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .topnav{
+    justify-content: space-around;
+    gap: 4px;
+  }
+  .topnav-link{
+    font-size: 13px;
+    padding: 10px 6px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 auto;
+    text-align: center;
+  }
+  .content{
+    padding-top: 4px;
+  }
+  .content-title{
+    font-size: 26px;
+  }
+  .section-title{
+    font-size: 21px;
+  }
+  .subsection-title{
+    font-size: 18px;
+  }
+  .lead{
+    font-size: 15px;
+  }
+  .entry{
+    padding: 14px;
+  }
+  .entry-title{
+    font-size: 16px;
+    line-height: 1.35;
+  }
+  .entry-meta{
+    font-size: 12px;
+    line-height: 1.45;
+  }
+  .section{
+    margin-bottom: 32px;
+    scroll-margin-top: 120px;
+  }
+  .footer-inner{
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+@media (max-width: 520px){
+  .sidebar-links{
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: none;
+  }
+  .sidebar-link{
+    width: 48px;
+    height: 48px;
+    min-height: 48px;
+    padding: 0;
+    justify-content: center;
+    flex: 0 0 48px;
+  }
+  .sidebar-link .link-text{
+    display: none;
+  }
+  .sidebar-link .icon{
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+  }
+  .sidebar-link .icon svg{
+    width: 20px;
+    height: 20px;
+  }
+  .contact-links .cta-link .link-text{
+    display: none;
+  }
+  .contact-links .cta-link{
+    width: 48px;
+    height: 48px;
+    min-height: 48px;
+    padding: 0;
+    justify-content: center;
+    flex: 0 0 48px;
+  }
+  .contact-links{
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
   }
 }
 
